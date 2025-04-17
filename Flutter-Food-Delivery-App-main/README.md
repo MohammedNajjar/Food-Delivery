@@ -2,7 +2,7 @@
 
 This is our complete food delivery app, where I will share with you how you can create a nice clean screens for your app that can run both Andriod and iOS devices because it builds with #flutter.
 
-## [Watch it on YouTube](https://www.youtube.com/playlist?list=PLFl8xqtYMecwuFQxVMXkWeYJfXCy38KLS)
+## [Watch it on YouTube](https://www.youtube.com/)
 
 **Packages we are using:**
 
