@@ -8,6 +8,8 @@ import '../widgets/searchBar.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = "/homeScreen";
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,67 +20,55 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: 20,
-                  ),
+                  const SizedBox(height: 20),
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "Good morning Akila!",
-                          style: Helper.getTheme(context).headline5,
+                          style: Helper.getTheme(context).displaySmall,
                         ),
-                        Image.asset(Helper.getAssetName("cart.png", "virtual"))
+                        Image.asset(
+                          Helper.getAssetName("cart.png", "virtual"),
+                        ),
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
+                  const SizedBox(height: 20),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(
+                      "Delivering to",
+                      style: Helper.getTheme(context).titleMedium,
+                    ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                    ),
-                    child: Text("Deilivering to"),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: DropdownButtonHideUnderline(
                       child: SizedBox(
                         width: 250,
                         child: DropdownButton(
                           value: "current location",
-                          items: [
+                          items: const [
                             DropdownMenuItem(
-                              child: Text("Current Location"),
                               value: "current location",
+                              child: Text("Current Location"),
                             ),
                           ],
                           icon: Image.asset(
-                            Helper.getAssetName(
-                                "dropdown_filled.png", "virtual"),
+                            Helper.getAssetName("dropdown_filled.png", "virtual"),
                           ),
-                          style: Helper.getTheme(context).headline4,
+                          style: Helper.getTheme(context).titleLarge,
                           onChanged: (_) {},
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  SearchBar(
-                    title: "Search Food",
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  const SizedBox(height: 20),
+                  const CustomSearchBar(title: "Search Food"),
+                  const SizedBox(height: 20),
                   Container(
                     width: double.infinity,
                     padding: const EdgeInsets.only(
@@ -95,9 +85,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                             name: "Offers",
                           ),
-                          SizedBox(
-                            width: 10,
-                          ),
+                          const SizedBox(width: 10),
                           CategoryCard(
                             image: Image.asset(
                               Helper.getAssetName("rice2.jpg", "real"),
@@ -105,9 +93,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                             name: "Sri Lankan",
                           ),
-                          SizedBox(
-                            width: 10,
-                          ),
+                          const SizedBox(width: 10),
                           CategoryCard(
                             image: Image.asset(
                               Helper.getAssetName("fruit.jpg", "real"),
@@ -115,9 +101,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                             name: "Italian",
                           ),
-                          SizedBox(
-                            width: 10,
-                          ),
+                          const SizedBox(width: 10),
                           CategoryCard(
                             image: Image.asset(
                               Helper.getAssetName("rice.jpg", "real"),
@@ -125,16 +109,12 @@ class HomeScreen extends StatelessWidget {
                             ),
                             name: "Indian",
                           ),
-                          SizedBox(
-                            width: 10,
-                          ),
+                          const SizedBox(width: 10),
                         ],
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 50,
-                  ),
+                  const SizedBox(height: 50),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: Row(
@@ -142,15 +122,13 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text(
                           "Popular Restaurants",
-                          style: Helper.getTheme(context).headline5,
+                          style: Helper.getTheme(context).titleLarge,
                         ),
-                        TextButton(onPressed: () {}, child: Text("View all"))
+                        TextButton(onPressed: () {}, child: const Text("View all"))
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  const SizedBox(height: 20),
                   RestaurantCard(
                     image: Image.asset(
                       Helper.getAssetName("pizza2.jpg", "real"),
@@ -172,9 +150,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     name: "Bakes by Tella",
                   ),
-                  SizedBox(
-                    height: 50,
-                  ),
+                  const SizedBox(height: 50),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: Row(
@@ -182,18 +158,16 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text(
                           "Most Popular",
-                          style: Helper.getTheme(context).headline5,
+                          style: Helper.getTheme(context).titleLarge,
                         ),
                         TextButton(
                           onPressed: () {},
-                          child: Text("View all"),
+                          child: const Text("View all"),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  const SizedBox(height: 20),
                   Container(
                     height: 250,
                     width: double.infinity,
@@ -209,9 +183,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                             name: "Cafe De Bambaa",
                           ),
-                          SizedBox(
-                            width: 30,
-                          ),
+                          const SizedBox(width: 30),
                           MostPopularCard(
                             name: "Burger by Bella",
                             image: Image.asset(
@@ -223,9 +195,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  const SizedBox(height: 20),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
@@ -233,11 +203,11 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text(
                           "Recent Items",
-                          style: Helper.getTheme(context).headline5,
+                          style: Helper.getTheme(context).titleLarge,
                         ),
                         TextButton(
                           onPressed: () {},
-                          child: Text("View all"),
+                          child: const Text("View all"),
                         ),
                       ],
                     ),
@@ -280,12 +250,11 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-              bottom: 0,
-              left: 0,
-              child: CustomNavBar(
-                home: true,
-              )),
+          const Positioned(
+            bottom: 0,
+            left: 0,
+            child: CustomNavBar(home: true),
+          ),
         ],
       ),
     );
@@ -294,15 +263,13 @@ class HomeScreen extends StatelessWidget {
 
 class RecentItemCard extends StatelessWidget {
   const RecentItemCard({
-    Key? key,
-    required String name,
-    required Image image,
-  })  : _name = name,
-        _image = image,
-        super(key: key);
+    super.key,
+    required this.name,
+    required this.image,
+  });
 
-  final String _name;
-  final Image _image;
+  final String name;
+  final Image image;
 
   @override
   Widget build(BuildContext context) {
@@ -311,33 +278,29 @@ class RecentItemCard extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(10),
-          child: Container(
+          child: SizedBox(
             width: 80,
             height: 80,
-            child: _image,
+            child: image,
           ),
         ),
-        SizedBox(
-          width: 10,
-        ),
+        const SizedBox(width: 10),
         Expanded(
-          child: Container(
+          child: SizedBox(
             height: 100,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  _name,
-                  style: Helper.getTheme(context)
-                      .headline4
-                      ?.copyWith(color: AppColor.primary),
+                  name,
+                  style: Helper.getTheme(context).titleLarge?.copyWith(
+                        color: AppColor.primary,
+                      ),
                 ),
                 Row(
                   children: [
-                    Text("Cafe"),
-                    SizedBox(
-                      width: 5,
-                    ),
+                    const Text("Cafe"),
+                    const SizedBox(width: 5),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 5.0),
                       child: Text(
@@ -348,31 +311,21 @@ class RecentItemCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text("Western Food"),
-                    SizedBox(
-                      width: 20,
-                    ),
+                    const SizedBox(width: 5),
+                    const Text("Western Food"),
+                    const SizedBox(width: 20),
                   ],
                 ),
                 Row(
                   children: [
-                    Image.asset(
-                      Helper.getAssetName("star_filled.png", "virtual"),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
+                    Image.asset(Helper.getAssetName("star_filled.png", "virtual")),
+                    const SizedBox(width: 5),
                     Text(
                       "4.9",
-                      style: TextStyle(
-                        color: AppColor.orange,
-                      ),
+                      style: TextStyle(color: AppColor.orange),
                     ),
-                    SizedBox(width: 10),
-                    Text('(124) Ratings')
+                    const SizedBox(width: 10),
+                    const Text('(124) Ratings')
                   ],
                 )
               ],
@@ -386,15 +339,13 @@ class RecentItemCard extends StatelessWidget {
 
 class MostPopularCard extends StatelessWidget {
   const MostPopularCard({
-    Key? key,
-    required String name,
-    required Image image,
-  })  : _name = name,
-        _image = image,
-        super(key: key);
+    super.key,
+    required this.name,
+    required this.image,
+  });
 
-  final String _name;
-  final Image _image;
+  final String name;
+  final Image image;
 
   @override
   Widget build(BuildContext context) {
@@ -403,25 +354,23 @@ class MostPopularCard extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(10),
-          child: Container(
+          child: SizedBox(
             width: 300,
             height: 200,
-            child: _image,
+            child: image,
           ),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Text(
-          _name,
-          style: Helper.getTheme(context)
-              .headline4
-              .copyWith(color: AppColor.primary),
+          name,
+          style: Helper.getTheme(context).titleLarge?.copyWith(
+                color: AppColor.primary,
+              ),
         ),
         Row(
           children: [
-            Text("Cafe"),
-            SizedBox(
-              width: 5,
-            ),
+            const Text("Cafe"),
+            const SizedBox(width: 5),
             Padding(
               padding: const EdgeInsets.only(bottom: 5.0),
               child: Text(
@@ -432,24 +381,14 @@ class MostPopularCard extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
-              width: 5,
-            ),
-            Text("Western Food"),
-            SizedBox(
-              width: 20,
-            ),
-            Image.asset(
-              Helper.getAssetName("star_filled.png", "virtual"),
-            ),
-            SizedBox(
-              width: 5,
-            ),
+            const SizedBox(width: 5),
+            const Text("Western Food"),
+            const SizedBox(width: 20),
+            Image.asset(Helper.getAssetName("star_filled.png", "virtual")),
+            const SizedBox(width: 5),
             Text(
               "4.9",
-              style: TextStyle(
-                color: AppColor.orange,
-              ),
+              style: TextStyle(color: AppColor.orange),
             )
           ],
         )
@@ -460,15 +399,13 @@ class MostPopularCard extends StatelessWidget {
 
 class RestaurantCard extends StatelessWidget {
   const RestaurantCard({
-    Key key,
-    @required String name,
-    @required Image image,
-  })  : _image = image,
-        _name = name,
-        super(key: key);
+    super.key,
+    required this.name,
+    required this.image,
+  });
 
-  final String _name;
-  final Image _image;
+  final String name;
+  final Image image;
 
   @override
   Widget build(BuildContext context) {
@@ -477,52 +414,34 @@ class RestaurantCard extends StatelessWidget {
       width: double.infinity,
       child: Column(
         children: [
-          SizedBox(height: 200, width: double.infinity, child: _image),
-          SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 200, width: double.infinity, child: image),
+          const SizedBox(height: 10),
           Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
                 Row(
                   children: [
                     Text(
-                      _name,
-                      style: Helper.getTheme(context).headline3,
+                      name,
+                      style: Helper.getTheme(context).displaySmall,
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 5,
-                ),
+                const SizedBox(height: 5),
                 Row(
                   children: [
-                    Image.asset(
-                      Helper.getAssetName("star_filled.png", "virtual"),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
+                    Image.asset(Helper.getAssetName("star_filled.png", "virtual")),
+                    const SizedBox(width: 5),
                     Text(
                       "4.9",
-                      style: TextStyle(
-                        color: AppColor.orange,
-                      ),
+                      style: TextStyle(color: AppColor.orange),
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text("(124 ratings)"),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text("Cafe"),
-                    SizedBox(
-                      width: 5,
-                    ),
+                    const SizedBox(width: 5),
+                    const Text("(124 ratings)"),
+                    const SizedBox(width: 5),
+                    const Text("Cafe"),
+                    const SizedBox(width: 5),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 5.0),
                       child: Text(
@@ -533,10 +452,8 @@ class RestaurantCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text("Western Food"),
+                    const SizedBox(width: 5),
+                    const Text("Western Food"),
                   ],
                 ),
               ],
@@ -550,15 +467,13 @@ class RestaurantCard extends StatelessWidget {
 
 class CategoryCard extends StatelessWidget {
   const CategoryCard({
-    Key key,
-    @required Image image,
-    @required String name,
-  })  : _image = image,
-        _name = name,
-        super(key: key);
+    super.key,
+    required this.image,
+    required this.name,
+  });
 
-  final String _name;
-  final Image _image;
+  final String name;
+  final Image image;
 
   @override
   Widget build(BuildContext context) {
@@ -566,22 +481,22 @@ class CategoryCard extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(10),
-          child: Container(
+          child: SizedBox(
             width: 100,
             height: 100,
-            child: _image,
+            child: image,
           ),
         ),
-        SizedBox(
-          height: 5,
-        ),
+        const SizedBox(height: 5),
         Text(
-          _name,
-          style: Helper.getTheme(context)
-              .headline4
-              .copyWith(color: AppColor.primary, fontSize: 16),
+          name,
+          style: Helper.getTheme(context).titleLarge?.copyWith(
+                color: AppColor.primary,
+                fontSize: 16,
+              ),
         ),
       ],
     );
   }
 }
+

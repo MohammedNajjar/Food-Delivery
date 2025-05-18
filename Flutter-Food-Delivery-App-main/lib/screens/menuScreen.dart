@@ -7,6 +7,8 @@ import 'package:monkey_app_demo/widgets/searchBar.dart';
 
 class MenuScreen extends StatelessWidget {
   static const routeName = "/menuScreen";
+  const MenuScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,31 +16,27 @@ class MenuScreen extends StatelessWidget {
         children: [
           SafeArea(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const SizedBox(height: 20),
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         "Menu",
-                        style: Helper.getTheme(context).headline5,
+                        style: Helper.getTheme(context).displaySmall,
                       ),
                       Image.asset(
                         Helper.getAssetName("cart.png", "virtual"),
-                      )
+                      ),
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                SearchBar(title: "Search Food"),
-                SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
+                const CustomSearchBar(title: "Search Food"),
+                const SizedBox(height: 20),
                 SizedBox(
                     height: Helper.getScreenHeight(context) * 0.6,
                     width: Helper.getScreenWidth(context),
@@ -147,12 +145,10 @@ class MenuScreen extends StatelessWidget {
               ],
             ),
           ),
-          Positioned(
+          const Positioned(
             bottom: 0,
             left: 0,
-            child: CustomNavBar(
-              menu: true,
-            ),
+            child: CustomNavBar(menu: true),
           )
         ],
       ),
@@ -162,10 +158,10 @@ class MenuScreen extends StatelessWidget {
 
 class MenuCard extends StatelessWidget {
   const MenuCard({
-    Key key,
-    @required String name,
-    @required String count,
-    @required Widget imageShape,
+    Key? key,
+    required String name,
+    required String count,
+    required Widget imageShape,
   })  : _name = name,
         _count = count,
         _imageShape = imageShape,
@@ -210,7 +206,7 @@ class MenuCard extends StatelessWidget {
             children: [
               Text(
                 _name,
-                style: Helper.getTheme(context).headline4.copyWith(
+                style: Helper.getTheme(context).headlineSmall?.copyWith(
                       color: AppColor.primary,
                     ),
               ),

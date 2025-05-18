@@ -36,7 +36,7 @@ class DessertScreen extends StatelessWidget {
                             children: [
                               Text(
                                 "Desserts",
-                                style: Helper.getTheme(context).headline5,
+                                style: Helper.getTheme(context).headlineMedium,
                               ),
                             ],
                           ),
@@ -50,9 +50,7 @@ class DessertScreen extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  SearchBar(
-                    title: "Search Food",
-                  ),
+                  CustomSearchBar(title: "Search Food"),
                   SizedBox(
                     height: 15,
                   ),
@@ -175,9 +173,7 @@ class DessertCard extends StatelessWidget {
                 children: [
                   Text(
                     _name,
-                    style: Helper.getTheme(context).headline4?.copyWith(
-                          color: Colors.white,
-                        ),
+                    style: Helper.getTheme(context).titleLarge,
                   ),
                   Row(
                     children: [

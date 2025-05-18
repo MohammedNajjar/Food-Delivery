@@ -26,7 +26,7 @@ class InboxScreen extends StatelessWidget {
                       Expanded(
                         child: Text(
                           "Inbox",
-                          style: Helper.getTheme(context).headline5,
+                          style: Helper.getTheme(context).titleLarge,
                         ),
                       ),
                       Image.asset(
@@ -93,22 +93,18 @@ class InboxScreen extends StatelessWidget {
 }
 
 class MailCard extends StatelessWidget {
-  const MailCard({
-    Key key,
-    String time,
-    String title,
-    String description,
-    Color color = Colors.white,
-  })  : _time = time,
-        _title = title,
-        _description = description,
-        _color = color,
-        super(key: key);
+  final String time;
+  final String title;
+  final String description;
+  final Color color;
 
-  final String _time;
-  final String _title;
-  final String _description;
-  final Color _color;
+  const MailCard({
+    Key? key,
+    required this.time,
+    required this.title,
+    required this.description,
+    this.color = Colors.white,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +112,7 @@ class MailCard extends StatelessWidget {
       height: 80,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: _color,
+        color: color,
         border: Border(
           bottom: BorderSide(
             color: AppColor.placeholder,
@@ -140,13 +136,13 @@ class MailCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  _title,
+                  title,
                   style: TextStyle(
                     color: AppColor.primary,
                   ),
                 ),
                 SizedBox(height: 5),
-                Text(_description),
+                Text(description),
               ],
             ),
           ),
@@ -154,7 +150,7 @@ class MailCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                _time,
+                time,
                 style: TextStyle(
                   fontSize: 10,
                 ),

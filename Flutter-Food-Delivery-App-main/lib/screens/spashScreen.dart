@@ -1,49 +1,54 @@
 import 'dart:async';
-
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import './landingScreen.dart';
 import '../utils/helper.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  Timer _timer;
+  late Timer _timer;
 
   @override
   void initState() {
-    _timer = Timer(Duration(milliseconds: 4000), () {
+    // Use a shorter duration in test mode
+    final duration = kDebugMode ? const Duration(milliseconds: 100) : const Duration(milliseconds: 4000);
+    
+    _timer = Timer(duration, () {
       Navigator.of(context).pushReplacementNamed(LandingScreen.routeName);
     });
     super.initState();
   }
 
   @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        width: Helper.getScreenWidth(context),
-        height: Helper.getScreenHeight(context),
-        child: Stack(
-          children: [
-            Container(
-              height: double.infinity,
-              width: double.infinity,
-              child: Image.asset(
-                Helper.getAssetName("splashIcon.png", "virtual"),
-                fit: BoxFit.fill,
-              ),
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          color: Colors.white,
+        ),
+        child: const Center(
+          child: Text(
+            "Food Delivery",
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
             ),
-            Align(
-              alignment: Alignment.center,
-              child: Image.asset(
-                Helper.getAssetName("MealMonkeyLogo.png", "virtual"),
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );

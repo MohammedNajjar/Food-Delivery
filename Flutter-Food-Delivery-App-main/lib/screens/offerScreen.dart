@@ -5,6 +5,8 @@ import 'package:monkey_app_demo/widgets/customNavBar.dart';
 
 class OfferScreen extends StatelessWidget {
   static const routeName = "/offerScreen";
+  const OfferScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,88 +16,83 @@ class OfferScreen extends StatelessWidget {
             child: Container(
               height: Helper.getScreenHeight(context),
               width: Helper.getScreenWidth(context),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Latest Offers",
-                            style: Helper.getTheme(context).headline5,
-                          ),
-                          Image.asset(
-                            Helper.getAssetName("cart.png", "virtual"),
-                          ),
-                        ],
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Column(
+                children: [
+                  const SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Latest Offers",
+                        style: Helper.getTheme(context).headlineSmall,
+                      ),
+                      Image.asset(
+                        Helper.getAssetName("cart.png", "virtual"),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Text(
+                      "Find discounts, offers special meals and more!",
+                      style: Helper.getTheme(context).headlineMedium?.copyWith(
+                        color: AppColor.primary,
+                        fontSize: 18,
                       ),
                     ),
-                    SizedBox(
-                      height: 10,
+                  ),
+                  const SizedBox(height: 20),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          height: 30,
+                          width: Helper.getScreenWidth(context) * 0.4,
+                          child: ElevatedButton(
+                              onPressed: () {}, child: Text("Check Offers")),
+                        ),
+                      ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Row(
-                        children: [Text("Find discounts, Offer special")],
-                      ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  OfferCard(
+                    image: Image.asset(
+                      Helper.getAssetName("breakfast.jpg", "real"),
+                      fit: BoxFit.cover,
                     ),
-                    SizedBox(
-                      height: 40,
+                    name: "Cafe de Noires",
+                  ),
+                  OfferCard(
+                    image: Image.asset(
+                      Helper.getAssetName("western2.jpg", "real"),
+                      fit: BoxFit.cover,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            height: 30,
-                            width: Helper.getScreenWidth(context) * 0.4,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("Check Offers")),
-                          ),
-                        ],
-                      ),
+                    name: "Isso",
+                  ),
+                  OfferCard(
+                    image: Image.asset(
+                      Helper.getAssetName("coffee3.jpg", "real"),
+                      fit: BoxFit.cover,
                     ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    OfferCard(
-                      image: Image.asset(
-                        Helper.getAssetName("breakfast.jpg", "real"),
-                        fit: BoxFit.cover,
-                      ),
-                      name: "Cafe de Noires",
-                    ),
-                    OfferCard(
-                      image: Image.asset(
-                        Helper.getAssetName("western2.jpg", "real"),
-                        fit: BoxFit.cover,
-                      ),
-                      name: "Isso",
-                    ),
-                    OfferCard(
-                      image: Image.asset(
-                        Helper.getAssetName("coffee3.jpg", "real"),
-                        fit: BoxFit.cover,
-                      ),
-                      name: "Cafe Beans",
-                    ),
-                    SizedBox(
-                      height: 100,
-                    ),
-                  ],
-                ),
+                    name: "Cafe Beans",
+                  ),
+                  SizedBox(
+                    height: 100,
+                  ),
+                ],
               ),
             ),
           ),
-          Positioned(
+          const Positioned(
             bottom: 0,
             left: 0,
-            child: CustomNavBar(
-              offer: true,
-            ),
-          )
+            child: CustomNavBar(offer: true),
+          ),
         ],
       ),
     );
@@ -104,15 +101,13 @@ class OfferScreen extends StatelessWidget {
 
 class OfferCard extends StatelessWidget {
   const OfferCard({
-    Key key,
-    String name,
-    Image image,
-  })  : _image = image,
-        _name = name,
-        super(key: key);
+    super.key,
+    required this.name,
+    required this.image,
+  });
 
-  final String _name;
-  final Image _image;
+  final String name;
+  final Image image;
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +116,7 @@ class OfferCard extends StatelessWidget {
       width: double.infinity,
       child: Column(
         children: [
-          SizedBox(height: 200, width: double.infinity, child: _image),
+          SizedBox(height: 200, width: double.infinity, child: image),
           SizedBox(
             height: 10,
           ),
@@ -130,10 +125,10 @@ class OfferCard extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  _name,
+                  name,
                   style: Helper.getTheme(context)
-                      .headline4
-                      .copyWith(color: AppColor.primary),
+                      .headlineSmall
+                      ?.copyWith(color: AppColor.primary),
                 )
               ],
             ),

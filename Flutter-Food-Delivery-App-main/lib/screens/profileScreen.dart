@@ -25,7 +25,7 @@ class ProfileScreen extends StatelessWidget {
                         children: [
                           Text(
                             "Profile",
-                            style: Helper.getTheme(context).headline5,
+                            style: Helper.getTheme(context).titleLarge,
                           ),
                           Image.asset(
                             Helper.getAssetName("cart.png", "virtual"),
@@ -85,7 +85,7 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       Text(
                         "Hi there Emilia!",
-                        style: Helper.getTheme(context).headline4.copyWith(
+                        style: Helper.getTheme(context).titleLarge?.copyWith(
                               color: AppColor.primary,
                             ),
                       ),
@@ -169,9 +169,9 @@ class ProfileScreen extends StatelessWidget {
 
 class CustomFormImput extends StatelessWidget {
   const CustomFormImput({
-    Key key,
-    String label,
-    String value,
+    Key? key,
+    required String label,
+    required String value,
     bool isPassword = false,
   })  : _label = label,
         _value = value,

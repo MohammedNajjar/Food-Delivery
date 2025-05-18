@@ -30,7 +30,7 @@ class CheckoutScreen extends StatelessWidget {
                     Expanded(
                       child: Text(
                         "Checkout",
-                        style: Helper.getTheme(context).headline5,
+                        style: Helper.getTheme(context).titleLarge,
                       ),
                     ),
                   ],
@@ -54,7 +54,7 @@ class CheckoutScreen extends StatelessWidget {
                         width: Helper.getScreenWidth(context) * 0.4,
                         child: Text(
                           "653 Nostrand Ave., Brooklyn, NY 11216",
-                          style: Helper.getTheme(context).headline3,
+                          style: Helper.getTheme(context).displayLarge,
                         ),
                       ),
                       TextButton(
@@ -125,7 +125,7 @@ class CheckoutScreen extends StatelessWidget {
                                             Text(
                                               "Add Credit/Debit Card",
                                               style: Helper.getTheme(context)
-                                                  .headline3,
+                                                  .displayLarge,
                                             )
                                           ],
                                         ),
@@ -388,7 +388,7 @@ class CheckoutScreen extends StatelessWidget {
                           Text("Sub Total"),
                           Text(
                             "\$68",
-                            style: Helper.getTheme(context).headline3,
+                            style: Helper.getTheme(context).displayLarge,
                           )
                         ],
                       ),
@@ -401,7 +401,7 @@ class CheckoutScreen extends StatelessWidget {
                           Text("Delivery Cost"),
                           Text(
                             "\$2",
-                            style: Helper.getTheme(context).headline3,
+                            style: Helper.getTheme(context).displayLarge,
                           )
                         ],
                       ),
@@ -414,7 +414,7 @@ class CheckoutScreen extends StatelessWidget {
                           Text("Discount"),
                           Text(
                             "-\$4",
-                            style: Helper.getTheme(context).headline3,
+                            style: Helper.getTheme(context).displayLarge,
                           )
                         ],
                       ),
@@ -429,7 +429,7 @@ class CheckoutScreen extends StatelessWidget {
                           Text("Total"),
                           Text(
                             "\$66",
-                            style: Helper.getTheme(context).headline3,
+                            style: Helper.getTheme(context).displayLarge,
                           )
                         ],
                       ),
@@ -500,7 +500,7 @@ class CheckoutScreen extends StatelessWidget {
                                     Text(
                                       "for your order",
                                       style: Helper.getTheme(context)
-                                          .headline4
+                                          .displayMedium
                                           ?.copyWith(color: AppColor.primary),
                                     ),
                                     SizedBox(

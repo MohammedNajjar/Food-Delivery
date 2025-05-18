@@ -22,73 +22,90 @@ import './screens/aboutScreen.dart';
 import './screens/inboxScreen.dart';
 import './screens/myOrderScreen.dart';
 import './screens/checkoutScreen.dart';
-import './const/colors.dart';
+
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Food Delivery',
       theme: ThemeData(
-        fontFamily: "Metropolis",
-        primarySwatch: Colors.red,
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(
-              AppColor.orange,
-            ),
-            shape: MaterialStateProperty.all(
-              StadiumBorder(),
-            ),
-            elevation: MaterialStateProperty.all(0),
+        primarySwatch: Colors.orange,
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(
+            color: Colors.black,
+            fontSize: 32,
+            fontWeight: FontWeight.bold,
           ),
-        ),
-        textButtonTheme: TextButtonThemeData(
-          style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all(
-              AppColor.orange,
-            ),
+          displayMedium: TextStyle(
+            color: Colors.black,
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
           ),
-        ),
-        textTheme: TextTheme(
-          headline3: TextStyle(
-            color: AppColor.primary,
+          displaySmall: TextStyle(
+            color: Colors.black,
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+          headlineLarge: TextStyle(
+            color: Colors.black,
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
+          headlineMedium: TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+          headlineSmall: TextStyle(
+            color: Colors.black,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+          titleLarge: TextStyle(
+            color: Colors.black,
             fontSize: 16,
             fontWeight: FontWeight.bold,
           ),
-          headline4: TextStyle(
-            color: AppColor.secondary,
+          titleMedium: TextStyle(
+            color: Colors.black,
+            fontSize: 14,
             fontWeight: FontWeight.bold,
-            fontSize: 20,
           ),
-          headline5: TextStyle(
-            color: AppColor.primary,
-            fontWeight: FontWeight.normal,
-            fontSize: 25,
+          titleSmall: TextStyle(
+            color: Colors.black,
+            fontSize: 12,
+            fontWeight: FontWeight.bold,
           ),
-          headline6: TextStyle(
-            color: AppColor.primary,
-            fontSize: 25,
+          bodyLarge: TextStyle(
+            color: Colors.black,
+            fontSize: 16,
           ),
-          bodyText2: TextStyle(
-            color: AppColor.secondary,
+          bodyMedium: TextStyle(
+            color: Colors.black,
+            fontSize: 14,
+          ),
+          bodySmall: TextStyle(
+            color: Colors.black,
+            fontSize: 12,
           ),
         ),
       ),
-      home: SplashScreen(),
+      home: const SplashScreen(),
       routes: {
-        LandingScreen.routeName: (context) => LandingScreen(),
+        LandingScreen.routeName: (context) => const LandingScreen(),
         LoginScreen.routeName: (context) => LoginScreen(),
         SignUpScreen.routeName: (context) => SignUpScreen(),
         ForgetPwScreen.routeName: (context) => ForgetPwScreen(),
-        SendOTPScreen.routeName: (context) => SendOTPScreen(),
+        SentOTPScreen.routeName: (context) => SentOTPScreen(),
         NewPwScreen.routeName: (context) => NewPwScreen(),
-        IntroScreen.routeName: (context) => IntroScreen(),
+        IntroScreen.routeName: (context) => const IntroScreen(),
         HomeScreen.routeName: (context) => HomeScreen(),
         MenuScreen.routeName: (context) => MenuScreen(),
         OfferScreen.routeName: (context) => OfferScreen(),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:clip_shadow/clip_shadow.dart';
+import 'package:monkey_app_demo/widgets/clip_shadow.dart';
 import 'package:monkey_app_demo/screens/loginScreen.dart';
 
 import '../const/colors.dart';
@@ -7,6 +7,8 @@ import '../utils/helper.dart';
 
 class LandingScreen extends StatelessWidget {
   static const routeName = "/landingScreen";
+  const LandingScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +24,7 @@ class LandingScreen extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   color: AppColor.placeholder,
-                  offset: Offset(0, 15),
+                  offset: const Offset(0, 15),
                   blurRadius: 10,
                 ),
               ],

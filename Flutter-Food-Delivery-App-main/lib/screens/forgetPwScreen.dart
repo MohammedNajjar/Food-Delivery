@@ -22,7 +22,7 @@ class ForgetPwScreen extends StatelessWidget {
               children: [
                 Text(
                   "Reset Password",
-                  style: Helper.getTheme(context).headline6,
+                  style: Helper.getTheme(context).titleMedium,
                 ),
                 Spacer(),
                 Text(
@@ -38,7 +38,7 @@ class ForgetPwScreen extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context)
-                          .pushReplacementNamed(SendOTPScreen.routeName);
+                          .pushReplacementNamed(SentOTPScreen.routeName);
                     },
                     child: Text("Send"),
                   ),

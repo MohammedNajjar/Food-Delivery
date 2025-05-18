@@ -28,7 +28,7 @@ class AboutScreen extends StatelessWidget {
                       Expanded(
                         child: Text(
                           "About Us",
-                          style: Helper.getTheme(context).headline5,
+                          style: Helper.getTheme(context).headlineMedium,
                         ),
                       ),
                       Image.asset(

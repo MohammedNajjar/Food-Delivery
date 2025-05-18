@@ -28,7 +28,7 @@ class NotificationScreen extends StatelessWidget {
                     Expanded(
                       child: Text(
                         "Notifications",
-                        style: Helper.getTheme(context).headline5,
+                        style: Helper.getTheme(context).titleLarge,
                       ),
                     ),
                     Image.asset(
@@ -91,9 +91,9 @@ class NotificationScreen extends StatelessWidget {
 
 class NotiCard extends StatelessWidget {
   const NotiCard({
-    Key key,
-    String time,
-    String title,
+    Key? key,
+    required String time,
+    required String title,
     Color color = Colors.white,
   })  : _time = time,
         _title = title,

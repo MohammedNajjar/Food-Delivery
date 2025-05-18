@@ -1,0 +1,58 @@
+image: cirrusci/flutter:latest
+
+stages:
+  - test
+  - build
+  - deploy
+
+variables:
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: ""
+
+before_script:
+  - flutter pub get
+
+test:
+  stage: test
+  script:
+    - flutter test
+  only:
+    - main
+    - develop
+
+build_web:
+  stage: build
+  script:
+    - flutter build web
+  artifacts:
+    paths:
+      - build/web/
+  only:
+    - main
+    - develop
+
+build_docker:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:latest
+    - docker push $CI_REGISTRY_IMAGE:latest
+  only:
+    - main
+
+deploy:
+  stage: deploy
+  image: alpine:latest
+  script:
+    - echo "Deploy to production server"
+    # Add your deployment commands here
+  environment:
+    name: production
+  only:
+    - main 

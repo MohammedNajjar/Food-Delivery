@@ -1,11 +1,13 @@
-import 'package:clip_shadow/clip_shadow.dart';
 import 'package:flutter/material.dart';
 import 'package:monkey_app_demo/const/colors.dart';
 import 'package:monkey_app_demo/utils/helper.dart';
 import 'package:monkey_app_demo/widgets/customNavBar.dart';
+import 'package:monkey_app_demo/widgets/clip_shadow.dart';
 
 class IndividualItem extends StatelessWidget {
   static const routeName = "/individualScreen";
+  const IndividualItem({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +35,7 @@ class IndividualItem extends StatelessWidget {
                             gradient: LinearGradient(
                               begin: Alignment.topCenter,
                               end: Alignment.bottomCenter,
-                              stops: [0.0, 0.4],
+                              stops: const [0.0, 0.4],
                               colors: [
                                 Colors.black.withOpacity(0.9),
                                 Colors.black.withOpacity(0.0),
@@ -47,8 +49,7 @@ class IndividualItem extends StatelessWidget {
                       child: Column(
                         children: [
                           Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 20.0),
+                            padding: const EdgeInsets.symmetric(horizontal: 20.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -56,14 +57,13 @@ class IndividualItem extends StatelessWidget {
                                   onTap: () {
                                     Navigator.of(context).pop();
                                   },
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.arrow_back_ios_rounded,
                                     color: Colors.white,
                                   ),
                                 ),
                                 Image.asset(
-                                  Helper.getAssetName(
-                                      "cart_white.png", "virtual"),
+                                  Helper.getAssetName("cart_white.png", "virtual"),
                                 ),
                               ],
                             ),
@@ -102,7 +102,7 @@ class IndividualItem extends StatelessWidget {
                                           child: Text(
                                             "Tandoori Chicken Pizza",
                                             style: Helper.getTheme(context)
-                                                .headline5,
+                                                .displayMedium,
                                           ),
                                         ),
                                         Padding(
@@ -202,8 +202,8 @@ class IndividualItem extends StatelessWidget {
                                           child: Text(
                                             "Description",
                                             style: Helper.getTheme(context)
-                                                .headline4
-                                                .copyWith(
+                                                .headlineSmall
+                                                ?.copyWith(
                                                   fontSize: 16,
                                                 ),
                                           ),
@@ -237,8 +237,8 @@ class IndividualItem extends StatelessWidget {
                                           child: Text(
                                             "Customize your Order",
                                             style: Helper.getTheme(context)
-                                                .headline4
-                                                .copyWith(
+                                                .headlineSmall
+                                                ?.copyWith(
                                                   fontSize: 16,
                                                 ),
                                           ),
@@ -344,8 +344,8 @@ class IndividualItem extends StatelessWidget {
                                               Text(
                                                 "Number of Portions",
                                                 style: Helper.getTheme(context)
-                                                    .headline4
-                                                    .copyWith(
+                                                    .headlineSmall
+                                                    ?.copyWith(
                                                       fontSize: 16,
                                                     ),
                                               ),

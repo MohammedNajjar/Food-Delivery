@@ -26,7 +26,7 @@ class ChangeAddressScreen extends StatelessWidget {
                     ),
                     Text(
                       "Change Address",
-                      style: Helper.getTheme(context).headline5,
+                      style: Helper.getTheme(context).headlineMedium,
                     )
                   ],
                 ),
@@ -124,7 +124,7 @@ class ChangeAddressScreen extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                SearchBar(title: "Search Address"),
+                CustomSearchBar(title: "Search Address"),
                 SizedBox(
                   height: 10,
                 ),

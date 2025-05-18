@@ -1,5 +1,5 @@
-import 'package:clip_shadow/clip_shadow.dart';
 import 'package:flutter/material.dart';
+import 'package:monkey_app_demo/widgets/clip_shadow.dart';
 
 import '../const/colors.dart';
 import '../screens/homeScreen.dart';
@@ -16,14 +16,14 @@ class CustomNavBar extends StatelessWidget {
   final bool profile;
   final bool more;
 
-  const CustomNavBar(
-      {Key key,
-      this.home = false,
-      this.menu = false,
-      this.offer = false,
-      this.profile = false,
-      this.more = false})
-      : super(key: key);
+  const CustomNavBar({
+    super.key,
+    this.home = false,
+    this.menu = false,
+    this.offer = false,
+    this.profile = false,
+    this.more = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +38,7 @@ class CustomNavBar extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   color: AppColor.placeholder,
-                  offset: Offset(
-                    0,
-                    -5,
-                  ),
+                  offset: const Offset(0, -5),
                   blurRadius: 10,
                 ),
               ],

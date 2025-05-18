@@ -27,7 +27,7 @@ class MoreScreen extends StatelessWidget {
                     children: [
                       Text(
                         "More",
-                        style: Helper.getTheme(context).headline5,
+                        style: Helper.getTheme(context).headlineMedium,
                       ),
                       Image.asset(
                         Helper.getAssetName("cart.png", "virtual"),
@@ -118,11 +118,11 @@ class MoreScreen extends StatelessWidget {
 
 class MoreCard extends StatelessWidget {
   const MoreCard({
-    Key key,
-    String name,
-    Image image,
+    Key? key,
+    required String name,
+    required Image image,
     bool isNoti = false,
-    Function handler,
+     required Function handler,
   })  : _name = name,
         _image = image,
         _isNoti = isNoti,
@@ -137,7 +137,7 @@ class MoreCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: _handler,
+      onTap: () => _handler(),
       child: Container(
         height: 70,
         width: double.infinity,
